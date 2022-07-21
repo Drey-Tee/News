@@ -12,12 +12,12 @@
     </center>
     </div>
   <div class="card-columns" style="padding: 10px; margin-left: 150px;margin-right: 10px;">
-    {% for object in object_list %}
+    {% for headline in headlines.all %}
     <div class="card" style="width: 18rem;border:5px white solid;margin-bottom: 50px;">
-  <img class="card-img-top" src = "{{ object.image }}">
+  <img class="card-img-top" src = "{{ headline.image }}">
   <div class="card-body">
     <h5 class="card-title"><div class="card-body">
-      <a href="{{object.url}}"><h5 class="card-title">{{object.title}}</h5></a>
+      <a href="{{headline.url}}"><h5 class="card-title">{{headline.title}}</h5></a>
     </div></h5>
     </div>
   </div>
@@ -32,3 +32,4 @@ integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
+

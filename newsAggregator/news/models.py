@@ -4,6 +4,7 @@ from django.db import models
 
 
 class Headline(models.Model):
+    objects = None
     title = models.CharField(max_length=200)
     image = models.URLField(null=True, blank=True)
     url = models.TextField()

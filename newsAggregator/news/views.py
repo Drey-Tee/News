@@ -3,12 +3,15 @@ import requests
 from django.shortcuts import render, redirect
 from bs4 import BeautifulSoup as BSoup
 from .models import Headline
+import requests
+requests.packages.urllib3.disable_warnings()
+
 
 # Create your views here.
 
 
 def scrape(request):
-    Headline.objects.all().delete()
+    # Headline.objects.all().delete()
     session = requests.Session()
     session.headers = {"User-Agent": "Googlebot/2.1 (+http://www.google.com/bot.html)"}
     url = "https://www.myjoyonline.com/"
@@ -18,9 +21,9 @@ def scrape(request):
     for article in News:
         main = article.find_all('a',href=True)
         links = article.find('a', {"class":"sc-1out364-0 hMndXN js_link"})
-        link=links['href']
-        images=main[0].find('img',src=True)
-        image_src=images['srcset'].split(" ")[-4]
+        link = links['href']
+        images = main[0].find('img',src=True)
+        image_src = images['srcset'].split(" ")[-4]
         titles = article.find('h2', {"class":"sc-759qgu-0 cYlVdn cw4lnv-6 eXwNRE"})
         title = titles.text
         new_headline = Headline()
